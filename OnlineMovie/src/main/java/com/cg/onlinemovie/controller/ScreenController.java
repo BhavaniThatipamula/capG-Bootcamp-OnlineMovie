@@ -22,6 +22,12 @@ import com.cg.onlinemovie.entity.Theatre;
 import com.cg.onlinemovie.exception.OnlineMovieException;
 import com.cg.onlinemovie.service.ScreenService;
  
+/************************************************************************************************************************************
+ *          @author          BhavaniThatipamula
+ *          Description      It is a controller class having Request Mapping functions for functionalities of add,delete,update for screen.
+ *         Version             1.0
+ *         Created Date     12-AUG-2020
+ ************************************************************************************************************************************/
 
 @RestController
 @CrossOrigin("*")
@@ -34,6 +40,15 @@ public class ScreenController {
 	String msg;
 	
 	ResponseEntity screenResponse=null;
+	
+	/*********************************************************************************************************************************
+	 * Method: addScreen
+     *Description: To add a screen based on user input of screenId / screenName / No of rows& columns 
+	 * @returns screenResponse of type screen - screen is added for particular theatreId.
+                *Created By                              - BhavaniThatipamula
+                *Created Date                            - 12-AUG-2020                           	 
+	 **********************************************************************************************************************************/
+	
 	@PostMapping("screen/theatre/{id}")
 	public ResponseEntity<Screen> addScreen(  @RequestBody Screen screen, @PathVariable("id") int theatreId)throws OnlineMovieException
 	{ 
@@ -56,6 +71,13 @@ public class ScreenController {
 		}
 		return screenResponse;
 	}
+	/*********************************************************************************************************************************
+	 * Method: deleteScreen
+     *Description: To delete a screen based on user input of screenId 
+	 * @returns screenResponse  of type screen - screen is deleted for particular screenId if not shows screen Id not found exception.
+                *Created By                              - BhavaniThatipamula
+                *Created Date                            - 12-AUG-2020                           	 
+	 **********************************************************************************************************************************/
 	
 	@DeleteMapping("screen/{id}")
 	public ResponseEntity<Screen> deleteScreen(@PathVariable ("id")int screenId)throws OnlineMovieException
@@ -77,6 +99,14 @@ public class ScreenController {
 		}
 		return screenResponse;
 	}
+	/*********************************************************************************************************************************
+	 * Method: updateScreen
+     *Description: To update a screen based on user input of theatreId and screenId
+	 * @returns screenResponse of type screen    - screen is updated for user input screenId and theatreId
+                *Created By                              - BhavaniThatipamula
+                *Created Date                            - 12-AUG-2020                           	 
+	 **********************************************************************************************************************************/
+	
 	@PutMapping("screen/theatre/{id}/screen/{id1}")
 	public ResponseEntity<Screen> updateScreen(@PathVariable("id") int theatreId, @PathVariable("id1") int screenId, @RequestBody Screen screen)throws OnlineMovieException
 	{ 
@@ -99,6 +129,15 @@ public class ScreenController {
 		}
 		return screenResponse;
 	}
+	/*********************************************************************************************************************************
+	 * Method: getAllScreens
+     *Description: To get all the screens based on user input of theatreId
+	 * @returns screenResponse of type list of screens   -All the screens of user input theatreId
+                *Created By                              - BhavaniThatipamula
+                *Created Date                            - 12-AUG-2020                           	 
+	 **********************************************************************************************************************************/
+	
+	 
 	@GetMapping("screen/theatre/{id}")
 	public ResponseEntity<List<Screen>> getAllScreens(@PathVariable("id") int theatreId)throws OnlineMovieException
 	{
@@ -118,6 +157,13 @@ public class ScreenController {
 		}
 		return screenResponse;
 		}
+	/*********************************************************************************************************************************
+	 * Method: showAllScreens
+     *Description: To get all the screens
+	 * @returns screenResponse of type list of screens   - All the screens 
+                *Created By                              - BhavaniThatipamula
+                *Created Date                            - 12-AUG-2020                           	 
+	 **********************************************************************************************************************************/
 	
 	@GetMapping("screen")
 	public ResponseEntity<List<Screen>> showAllScreens()

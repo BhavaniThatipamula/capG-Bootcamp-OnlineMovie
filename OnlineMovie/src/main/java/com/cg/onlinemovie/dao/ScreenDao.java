@@ -10,7 +10,13 @@ import org.springframework.stereotype.Repository;
 
 import com.cg.onlinemovie.entity.Screen;
  
- 
+/*************************************************************************************************************************
+ * @author     : BhavaniThatipamula
+ * Description : It is a Dao interface which extends the JPA repository of screen which is capable to perform all crud 
+ *               operations of screen. 
+ * Version     : 1.0 
+ * Created Date: 12-AUG-2020
+ *************************************************************************************************************************/
 @Repository
 public interface ScreenDao extends JpaRepository<Screen,Integer>{
 	

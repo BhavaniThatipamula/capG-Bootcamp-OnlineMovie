@@ -10,7 +10,13 @@ import org.springframework.data.repository.query.Param;
 
 import com.cg.onlinemovie.entity.Show;
 
-
+/*************************************************************************************************************************
+ * @author     : BhavaniThatipamula
+ * Description : It is a Dao interface which extends the JPA repository of show which is capable to perform all crud 
+ *               operations of show. 
+ * Version     : 1.0 
+ * Created Date: 12-AUG-2020
+ *************************************************************************************************************************/
 @Repository
 public interface ShowDao extends JpaRepository<Show,Integer>{
 

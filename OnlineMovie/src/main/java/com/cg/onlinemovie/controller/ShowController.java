@@ -25,14 +25,28 @@ import com.cg.onlinemovie.service.ShowService;
 @RestController
 @CrossOrigin("*")
 public class ShowController {
-
-	@Autowired
-	 ShowService showService;
 	
+/************************************************************************************************************************************
+*          @author          BhavaniThatipamula
+*          Description      It is a controller class having Request Mapping functions for functionalities of add,delete for show.
+*         Version             1.0
+*         Created Date     12-AUG-2020
+************************************************************************************************************************************/
+
+
+    @Autowired
+	ShowService showService;
 	Logger logger = LoggerFactory.getLogger(OnlineMovieApplication.class);
 	String msg;
-	
 	ResponseEntity showResponse=null;
+	
+	/*********************************************************************************************************************************
+	 * Method: addShow
+     *Description: To add a show based on user input of showId / showName / start time and end time 
+	 * @returns screenResponse of type show - show is added for particular movieId.
+                *Created By                              - BhavaniThatipamula
+                *Created Date                            - 12-AUG-2020                           	 
+	 **********************************************************************************************************************************/
 	
 	@PostMapping("show/movie/{id}")
 	public ResponseEntity<Show> addShow(@RequestBody Show show,@PathVariable("id") int movieId)throws OnlineMovieException
@@ -55,6 +69,14 @@ public class ShowController {
 		}
 		return showResponse;
 	}
+
+	/*********************************************************************************************************************************
+	 * Method: deleteShow
+     *Description: To delete a show based on user input of showId throws an exception if the showId not present 
+	 * @returns screenResponse of type show - show is deleted for user input show Id.
+                *Created By                              - BhavaniThatipamula
+                *Created Date                            - 12-AUG-2020                           	 
+	 **********************************************************************************************************************************/
 	
 	@DeleteMapping("show/movie/{id}/show/{id1}")
 	public ResponseEntity<Show> deleteShow(@PathVariable("id") int movieId, @PathVariable("id1") int showId)throws OnlineMovieException
@@ -72,7 +94,16 @@ public class ShowController {
 			showResponse =new ResponseEntity<Show>(tempShow,HttpStatus.NOT_FOUND);
 		}
 		return showResponse;
-	}
+    }
+
+	/*********************************************************************************************************************************
+	 * Method: getAllShows
+     *Description: To get all the shows based on user input of movie Id 
+	 * @returns screenResponse of type list of shows - list of shows can be  printed for the particular movie Id.
+                *Created By                              - BhavaniThatipamula
+                *Created Date                            - 12-AUG-2020                           	 
+	 **********************************************************************************************************************************/
+	
 	@GetMapping("show/movie/{id}")
 	public ResponseEntity<List<Show>> getAllShows(@PathVariable("id") int movieId)throws OnlineMovieException
 	{	 
@@ -89,8 +120,15 @@ public class ShowController {
 		}
 		return showResponse;
 	}
-	
-	
+
+	/*********************************************************************************************************************************
+	 * Method: showAllShows
+     *Description: To show all the shows.
+	 * @returns screenResponse of type list of show- All the shows irrespective of the movieId will be displayed.
+                *Created By                              - BhavaniThatipamula
+                *Created Date                            - 12-AUG-2020                           	 
+	 **********************************************************************************************************************************/
+
 	@GetMapping("show")
 	public ResponseEntity<List<Show>> showAllShows()
 	{

@@ -12,9 +12,25 @@ import com.cg.onlinemovie.exception.OnlineMovieException;
 @Service
 public class ScreenServiceImpl implements ScreenService{
 	
+	/****************************************************************************************************************************
+	 * @author            BhavaniThatipamula
+	 * Description        It is a service implementation which is implemented by the class having business logic for add,delete           
+	 *                    functionalities of screen service interface
+	 * Version            1.0 
+	 * Created Date       12-AUG-2020
+	 *****************************************************************************************************************************/
 	@Autowired
 	ScreenDao screenDao;
 
+	/*********************************************************************************************************************************
+	 * Method: addScreen
+     *Description: To add a screen based on user input of screenId / screenName / No of rows& columns 
+	 * @returns  screen - screen is added for particular theatreId.
+	 * @throws exception - when theatreID is not present
+                *Created By                              - BhavaniThatipamula
+                *Created Date                            - 12-AUG-2020                           	 
+	 **********************************************************************************************************************************/
+	
 	@Override
 	public Screen addScreen(int theatreId, Screen screen)throws OnlineMovieException {
 		
@@ -32,6 +48,15 @@ public class ScreenServiceImpl implements ScreenService{
 		 
 		return tempScreen;
 	}
+	/*********************************************************************************************************************************
+	 * Method: deleteScreen
+     *Description: To delete a screen based on user input of screenId 
+	 * @returns  of type screen - screen is deleted for particular screenId
+	 * @throws Exception(OnlineMovieException    - when screenId is not found
+                *Created By                              - BhavaniThatipamula
+                *Created Date                            - 12-AUG-2020                           	 
+	 **********************************************************************************************************************************/
+	
 
 	@Override
 	public Screen deleteScreen(int screenId) throws OnlineMovieException {
@@ -49,7 +74,14 @@ public class ScreenServiceImpl implements ScreenService{
 		return screen;
 	}
 
-	 
+	/*********************************************************************************************************************************
+	 * Method: getAllScreens
+     *Description: To get all the screens based on user input of theatreId
+	 * @returns screenResponse of type list of screens   -All the screens of user input theatreId
+	 * @throws user defined exception                    - when theatreId not found
+                *Created By                              - BhavaniThatipamula
+                *Created Date                            - 12-AUG-2020                           	 
+	 **********************************************************************************************************************************/ 
 
 	@Override
 	public List<Screen> getAllScreens(int theatreId) throws OnlineMovieException {
@@ -64,10 +96,17 @@ public class ScreenServiceImpl implements ScreenService{
 		{
 			return screenList;
 		}
- 
-		
 	}
 
+	/*********************************************************************************************************************************
+	 * Method: updateScreen
+     *Description: To update a screen based on user input of theatreId and screenId
+	 * @returns screen    - screen is updated for user input screenId and theatreId
+	 * @throws user defined exception                    - when screenId not found
+                *Created By                              - BhavaniThatipamula
+                *Created Date                            - 12-AUG-2020                           	 
+	 **********************************************************************************************************************************/
+	
 	@Override
 	public Screen updateScreen(int theatreId,int screenId, Screen screen) throws OnlineMovieException {
 		
@@ -88,7 +127,14 @@ public class ScreenServiceImpl implements ScreenService{
 		}
 		return screen;
 	}
-
+	/*********************************************************************************************************************************
+	 * Method: getScreen
+     *Description: To get the screen based on screenId
+	 * @returns screen                            - All the screens 
+                *Created By                       - BhavaniThatipamula
+                *Created Date                     - 12-AUG-2020                           	 
+	 **********************************************************************************************************************************/
+	
 	@Override
 	public Screen getScreen(int screenId) throws OnlineMovieException {
 		 
@@ -99,7 +145,14 @@ public class ScreenServiceImpl implements ScreenService{
 		}
 		return tempScreen;
 	}
-
+	/*********************************************************************************************************************************
+	 * Method: showAllScreens
+     *Description: To get all the screens
+	 * @returns screenResponse of type list of screens   - All the screens 
+                *Created By                              - BhavaniThatipamula
+                *Created Date                            - 12-AUG-2020                           	 
+	 **********************************************************************************************************************************/
+	
 	@Override
 	public List<Screen> showAllScreens() {
 		 

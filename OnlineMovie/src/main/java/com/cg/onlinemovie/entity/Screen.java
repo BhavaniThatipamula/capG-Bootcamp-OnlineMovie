@@ -12,6 +12,13 @@ import javax.persistence.ManyToOne;
  
 import javax.persistence.Table;
 
+/*************************************************************************************************************************
+ *         @author          BhavaniThatipamula
+ *         Description      It is an entity class of Screen , which maps to a database table screen_tbl , consists
+ *          				of its private data members, setters and getters , parameterized and default constructors..
+ *         Version          1.0
+ *         Created Date     12-AUG-2020
+ *************************************************************************************************************************/
 
 @Entity
 @Table(name="screen_tbl")

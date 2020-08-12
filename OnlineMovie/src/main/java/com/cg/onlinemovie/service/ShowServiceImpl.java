@@ -13,9 +13,25 @@ import com.cg.onlinemovie.exception.OnlineMovieException;
 @Service
 public class ShowServiceImpl implements ShowService{
 	
+	/****************************************************************************************************************************
+	 * @author            BhavaniThatipamula
+	 * Description        It is a service implementation which is implemented by the class having business logic for add,delete           
+	 *                    functionalities of show service interface
+	 * Version            1.0 
+	 * Created Date       12-AUG-2020
+	 *****************************************************************************************************************************/
 	@Autowired
 	ShowDao showDao;
 
+	/*********************************************************************************************************************************
+	 * Method: addShow
+     *Description: To add a show based on user input of showId / showName / start time and end time 
+	 * @returns  show - show is added for particular movieId.
+	 * @throws user defined Exception - when movieId not found
+                *Created By                              - BhavaniThatipamula
+                *Created Date                            - 12-AUG-2020                           	 
+	 **********************************************************************************************************************************/
+	
 	@Override
 	public Show addShow(int movieId, Show show) throws OnlineMovieException {
 		
@@ -34,6 +50,16 @@ public class ShowServiceImpl implements ShowService{
 		return addedShow;
 	}
 
+
+	/*********************************************************************************************************************************
+	 * Method: deleteShow
+     *Description: To delete a show based on user input of showId throws an exception if the showId not present 
+	 * @returns show - show is deleted for user input show Id.
+	 * @throws user defined Exception(ShowId not found) when showId not found
+                *Created By                              - BhavaniThatipamula
+                *Created Date                            - 12-AUG-2020                           	 
+	 **********************************************************************************************************************************/
+	
 	@Override
 	public Show deleteShow(int movieId, int showId) throws OnlineMovieException {
 		 List<Show> templist=showDao.existsByMovieId(movieId);
@@ -57,6 +83,14 @@ public class ShowServiceImpl implements ShowService{
 		return show;
 	}
 
+	/*********************************************************************************************************************************
+	 * Method: getAllShows
+     *Description: To get all the shows based on user input of movie Id 
+	 * @returns screenResponse of type list of shows - list of shows can be  printed for the particular movie Id.
+                *Created By                              - BhavaniThatipamula
+                *Created Date                            - 12-AUG-2020                           	 
+	 **********************************************************************************************************************************/
+	
 	@Override
 	public List<Show> getAllShows(int movieId) throws OnlineMovieException {
 		
@@ -73,14 +107,27 @@ public class ShowServiceImpl implements ShowService{
 		}
 		
 	}
-
-	
+	/*********************************************************************************************************************************
+	 * Method: showAllShows
+     *Description: To show all the shows.
+	 * @returns list of show- All the shows irrespective of the movieId will be displayed.
+                *Created By                              - BhavaniThatipamula
+                *Created Date                            - 12-AUG-2020                           	 
+	 **********************************************************************************************************************************/
 	@Override
 	public List<Show> showAllShows() {
 	
 		List<Show> list=showDao.findAll();
 		return list;
 	}
+
+	/*********************************************************************************************************************************
+	 * Method: getShow
+     *Description: To get the show details for particular showId.
+	 * @returns list of show-  Show details can be printed
+                *Created By                              - BhavaniThatipamula
+                *Created Date                            - 12-AUG-2020                           	 
+	 **********************************************************************************************************************************/
 
 	@Override
 	public Show getShow(int showId) throws OnlineMovieException {

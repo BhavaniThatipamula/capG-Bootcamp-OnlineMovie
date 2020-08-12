@@ -10,6 +10,13 @@ import javax.persistence.Table;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 
+/*************************************************************************************************************************
+ *         @author          BhavaniThatipamula
+ *         Description      It is an entity class of Movie, which maps to a database table movie_tbl , consists
+ *          				of its private data members, setters and getters , parameterized and default constructors..
+ *         Version          1.0
+ *         Created Date     12-AUG-2020
+ *************************************************************************************************************************/
 
 @Entity
 @Table(name="movie_tbl")
